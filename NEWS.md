@@ -54,7 +54,7 @@ Compiler/Runtime improvements
   Code heavily dependent on constant propagation should see significant compile-time performance improvements and
   certain cases (e.g. calls to uninlinable functions that are nevertheless effect free) should see runtime performance
   improvements. Effects may be overwritten manually with the `@Base.assume_effects` macro ([#43852]).
-* Precompilation now saves more type-inferred code, resulting in reduced time-to-first task for many packages.
+* Precompilation (with explicit `precompile` directives or representative workloads) now saves more type-inferred code, resulting in reduced time-to-first task for packages that use precompilation.
   This change also eliminates the runtime performance degradation occasionally triggered by precompilation on
   older Julia versions. More specifically, any newly-inferred method/type combinations needed by your
   package--regardless of where those methods were defined--can now be cached in the precompile file, as long as they
